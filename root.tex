@@ -1,0 +1,69 @@
+%%%% ijcai16.tex
+
+% \typeout{IJCAI-16 Instructions for Authors}
+
+% These are the instructions for authors for IJCAI-16.
+% They are the same as the ones for IJCAI-11 with superficical wording
+%   changes only.
+
+\documentclass[conference]{article}
+% The file ijcai16.sty is the style file for IJCAI-16 (same as ijcai07.sty).
+\usepackage{ijcai16}
+
+% Use the postscript times font!
+\usepackage{times}
+
+% the following package is optional:
+%\usepackage{latexsym} 
+
+% Following comment is from ijcai97-submit.tex:
+% The preparation of these files was supported by Schlumberger Palo Alto
+% Research, AT\&T Bell Laboratories, and Morgan Kaufmann Publishers.
+% Shirley Jowell, of Morgan Kaufmann Publishers, and Peter F.
+% Patel-Schneider, of AT\&T Bell Laboratories collaborated on their
+% preparation.
+
+% These instructions can be modified and used in other conferences as long
+% as credit to the authors and supporting agencies is retained, this notice
+% is not changed, and further modification or reuse is not restricted.
+% Neither Shirley Jowell nor Peter F. Patel-Schneider can be listed as
+% contacts for providing assistance without their prior permission.
+
+% To use for other conferences, change references to files and the
+% conference appropriate and use other authors, contacts, publishers, and
+% organizations.
+% Also change the deadline and address for returning papers and the length and
+% page charge instructions.
+% Put where the files are available in the appropriate places.
+
+\title{A Novel Control Architecture for Collaborative Robots}
+\author{Luke Fraser \\ 
+University of Nevada, Reno - Reno, Nevada\\
+Luke.Fraser.A@gmail.com}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+  Robot tasks for real-world applications typically involve multiple paths of execution, when the same task could be achieved in multiple different ways. This poses challenges with respect to the representation and execution of such tasks, as enumerating all possible execution paths leads to combinatorial increases in the representation. In this paper we present a novel robot control architecture that addresses these challenges. The architecture 1) provides an efficient, compact encoding of tasks with multiple paths of execution, 2) it uses the same compact representation as the controller that the robot will use to achieve its goals and 3) it allows the robot to dynamically decide which execution path to follow using an activation spreading mechanism that relies on environmental conditions. We validate our architecture using a humanoid PR2 robot, showing that the robot dynamically selects a path of execution, based on the current state of the environment.
+\end{abstract}
+
+\section{Introduction}
+In real-world applications, the tasks that a robot would have to complete are typically more complex than a sequence of steps that must be performed in order. Furthermore, the same task could be performed in a wide variety of ways, due in large part to the affordances present in the environment. As an example, an assembly task may have parts during which some steps must be executed sequentially (i.e, an axle must be mounted before the wheel), other parts in which the steps could be executed in any order (i.e., mounting four wheels could happen in any order), and also parts that could be achieved through multiple paths of execution (i.e, could use either wrench1 or wrench2 to tighten the bolts). The tasks could further be structured using a hierarchical representation. The robot's task representation and the underlying control architecture should enable the representation of all these constraints and alternate options, in order to allow the robot flexibility in performing the task. 
+
+To date, the general approach for encoding robot controllers relies on a relatively fixed representation, which restricts the robot to always performing a task using a pre-defined, fixed sequence of steps. Several recent approaches for encoding such complex activities have been developed \cite{koppula2013anticipating}\cite{hawkins2014anticipating}, which have been successfully demonstrated on typically small-scale tasks. The major challenge for encoding tasks with {\it no ordering constraints} on their steps and with {\it multiple paths of execution} leads to a combinatorial increase in the representation, due to the fact that all possible execution paths need to be explicitly encoded in the architecture. While the tasks can in principle be encoded using a compact representation, the robot controller needs to expand that to its for actual robot execution. In this paper we propose a robot control architecture that enables both a {\it compact encoding} and {\it execution} of the above tasks. Furthermore, through the use of an activation spreading mechanism, the representation allows the robot to dynamically decide which path of execution to follow. The architecture follows a behavior-based paradigm, in which basic robot capabilities are represented as nodes in an interconnected network. 
+
+The remainder of this paper is structured as follows: Section~\ref{relatedWork} describes previous related research, Section~\ref{architecture} presents our approach for encoding and executing complex tasks, Section~\ref{evaluation} shows our experimental evaluation and Section~\ref{conclusion} gives a summary of the presented work.
+\section*{Acknowledgments}
+
+
+% \appendix
+
+%% The file named.bst is a bibliography style file for BibTeX 0.99c
+\bibliographystyle{named}
+\bibliography{refs/master.bib}
+
+\end{document}
+
+\grid
